@@ -1,0 +1,126 @@
+/* ===== Colors for light and dark mode ===== */
+:root {
+    --page-bg: #f8f9fa;
+    --alt-bg: #ffffff;
+    --border-color: #dee2e6;
+    --hero-from: #0d6efd11;
+    --hero-to: #0d6efd22;
+    --accent: #0d6efd;
+}
+
+[data-bs-theme="dark"] {
+    --page-bg: #0f141b;
+    --alt-bg: #161d27;
+    --border-color: #2b3544;
+    --hero-from: #0d6efd22;
+    --hero-to: #0d6efd44;
+    --accent: #6ea8fe;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--page-bg);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* When jumping to a section, keep its title below the sticky navbar */
+section,
+header {
+    scroll-margin-top: 70px;
+}
+
+/* ===== Navbar ===== */
+.site-nav {
+    background-color: var(--alt-bg);
+}
+
+.navbar .nav-link.active {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.theme-toggle {
+    white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+    .theme-toggle {
+        margin-top: 10px;
+    }
+}
+
+/* ===== Hero ===== */
+.hero {
+    display: flex;
+    background: linear-gradient(135deg, var(--hero-from), var(--hero-to));
+    min-height: 80vh;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.hero .profile-img {
+    width: 300px;
+    height: 300px;
+    max-width: 100%;
+    border: 3px solid var(--alt-bg);
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Section titles (with the blue underline) ===== */
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    background-color: var(--accent);
+    width: 50%;
+    height: 3px;
+    inset-inline-start: 0;
+    bottom: -6px;
+}
+
+/* Alternate background for Skills and Contact sections */
+.section-alt {
+    background-color: var(--alt-bg);
+}
+
+/* ===== Projects ===== */
+#projects .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+#projects .card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#projects .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    background-color: var(--alt-bg);
+    border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 767px) {
+    .hero {
+        text-align: center;
+    }
+    .hero .profile-img {
+        width: 220px;
+        height: 220px;
+    }
+}
